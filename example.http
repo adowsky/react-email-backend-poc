@@ -1,0 +1,23 @@
+# POST http://localhost:3000/simple
+# Content-Type: application/json
+
+# {
+
+# }
+
+
+POST http://localhost:3000/emails/listing
+Content-Type: application/json
+
+{
+    "elements": [
+        {
+            "title": "foo",
+            "content": "Foo content"
+        },
+                {
+            "title": "bar",
+            "content": "Bar content"
+        }
+    ]
+}

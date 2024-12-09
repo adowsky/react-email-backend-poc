@@ -1,0 +1,41 @@
+{
+  "name": "mail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && c8 node --test -r ts-node/register \"test/**/*.ts\"",
+    "start": "npm run build:ts && fastify start -l info dist/index.js",
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w",
+    "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
+    "dev:start": "fastify start --ignore-watch=.tsx?$ -w -l info -P dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@react-email/components": "0.0.30",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.1",
+    "c8": "^10.1.2",
+    "concurrently": "^9.0.0",
+    "fastify-tsconfig": "^2.0.0",
+    "nodemon": "^3.1.7",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@react-email/render": "1.0.3",
+    "express": "^4.21.2",
+    "fastify": "^5.0.0",
+    "fastify-plugin": "^5.0.0",
+    "@fastify/autoload": "^6.0.0",
+    "@fastify/sensible": "^6.0.0",
+    "fastify-cli": "^7.1.0",
+    "react-mail": "^0.0.1"
+  }
+}
